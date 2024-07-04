@@ -16,17 +16,9 @@ private:
 public:
     explicit Note(const std::string& title, const std::string& text, bool important = false);
 
-    void setText(const std::string& newText) {
-        if (!locked)
-            text = newText;
-        else
-            std::cout << "Impossible to write. The note is locked!" ;
-    }
+    void setTitle(const std::string& newTitle);
 
-    void setTitle(const std::string& newTitle) {
-        if (!locked)
-            title = newTitle;
-    }
+    void setText(const std::string& newText);
 
     void lock() {
         locked = true;
@@ -34,6 +26,10 @@ public:
 
     void unlock() {
         locked = false;
+    }
+
+    std::string getTitle() const {
+        return title;
     }
 
     std::string getText() const {
