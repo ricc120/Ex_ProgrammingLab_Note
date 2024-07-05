@@ -3,20 +3,27 @@
 //
 
 #include "Collection.h"
+#include "Note.h"
 #include <iostream>
-#include <algorithm>
 
-Collection::Collection(const std::string &name) : name(name) , noteCounts(0) {
+Collection::Collection(const std::string &name) : name(name) , notesCount(0) {
 }
 
 void Collection::addNote(std::shared_ptr<Note> notes) {
     this->notes.push_back(notes);
-    noteCounts[getName()]++;
+    notesCount++;
+    notifyObserver();
 }
 
 void Collection::removeNote(const std::string &title) {
-    auto it = noteCounts[title];
-    this->notes.erase(notes.begin() + it);
+    auto it = notes.begin();
+    while (it != notes.end()) {
+        if ((*it)->getTitle() == title)
+            notes.erase(it);
+        else
+            it++;
+    }
+    notifyObserver();
 }
 
 

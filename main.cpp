@@ -1,18 +1,21 @@
 #include <iostream>
 #include "Note.h"
+#include "Collection.h"
+#include "NoteCounter.h"
 
 int main() {
-    Note n1("Recipe", "...");
+    Collection c("General");
+    auto n1 = std::make_shared<Note>("Recipe", "...");
+    auto n2 = std::make_shared<Note>("ToDo", "...");
 
-    std::cout << "Text: " << n1.getText() << std::endl;
-    n1.setText("Tuna Salad!");
+    //Notify when the notes are added and removed
+    NoteCounter noteCounter(&c);
 
-    std::cout << "Text: " << n1.getText() << std::endl;
-    n1.lock();
+    //Add notes in collection "General"
+    c.addNote(n1);
+    c.addNote(n2);
 
-    if (n1.isLock())
-        std::cout << "NOTE LOCKED\nImpossible to change the text." << std::endl;
-    else
-        std::cout << "/* Writing text... */" << std::endl;
+    //Remove from the collection the note "Recipe"
+    c.removeNote("Recipe");
 
 }

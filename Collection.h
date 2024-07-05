@@ -8,13 +8,16 @@
 #include "Note.h"
 #include <memory>
 #include <vector>
-#include <unordered_map>
+#include <list>
+#include "Observer.h"
+#include "Subject.h"
 
-class Collection {
+class Collection : public Subject{
 private:
     std::string name;
     std::vector<std::shared_ptr<Note>> notes;
-    std::unordered_map<std::string, int> noteCounts;
+    int notesCount;
+    std::list<Observer*> observers;
 
 public:
     explicit Collection(const std::string& name);
@@ -27,9 +30,23 @@ public:
 
     void removeNote(const std::string& title);
 
-    int getNoteCount() const {
+    size_t getNotesCount() const {
         return notes.size();
     }
+
+    void registerObserver(Observer *o) override {
+        observers.push_back(o);
+    };
+
+    void notifyObserver() const override {
+        for (auto elements: observers)
+            elements->update();
+    };
+
+    void removeObserver(Observer *o) override {
+        observers.remove(o);
+    };
+
 };
 
 
