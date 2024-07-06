@@ -5,8 +5,8 @@
 #include "Note.h"
 #include <iostream>
 
-Note::Note(const std::string &title, const std::string &text, bool important)
-: text(text) , title(title) , locked(false) , important(important) {
+Note::Note(const std::string &title, const std::string &text)
+        : text(text), title(title), locked(false) {
 }
 
 void Note::setTitle(const std::string &newTitle) {

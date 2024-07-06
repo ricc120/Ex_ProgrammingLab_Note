@@ -11,10 +11,9 @@ private:
     std::string title;
     std::string text;
     bool locked;
-    bool important;
 
 public:
-    explicit Note(const std::string& title, const std::string& text, bool important = false);
+    explicit Note(const std::string &title, const std::string &text);
 
     void setTitle(const std::string& newTitle);
 
@@ -38,10 +37,6 @@ public:
 
     bool isLock() const {
         return locked;
-    }
-
-    bool isImportant() const {
-        return important;
     }
 
 };

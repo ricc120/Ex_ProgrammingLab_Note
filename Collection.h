@@ -18,17 +18,20 @@ private:
     std::vector<std::shared_ptr<Note>> notes;
     int notesCount;
     std::list<Observer*> observers;
+    bool important;
 
 public:
-    explicit Collection(const std::string& name);
+    Collection();
+
+    explicit Collection(const std::string &name);
 
     std::string getName() const {
         return name;
     }
 
-    void addNote(std::shared_ptr<Note> notes);
+    virtual void addNote(std::shared_ptr<Note> notes);
 
-    void removeNote(const std::string& title);
+    virtual void removeNote(const std::string &title);
 
     size_t getNotesCount() const {
         return notes.size();
@@ -46,6 +49,10 @@ public:
     void removeObserver(Observer *o) override {
         observers.remove(o);
     };
+
+    bool isImportant() const {
+        return important;
+    }
 
 };
 

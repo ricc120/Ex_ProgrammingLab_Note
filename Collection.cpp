@@ -6,7 +6,11 @@
 #include "Note.h"
 #include <iostream>
 
-Collection::Collection(const std::string &name) : name(name) , notesCount(0) {
+
+Collection::Collection() : name("Important Notes"), important(true), notesCount(0) {
+}
+
+Collection::Collection(const std::string &name) : name(name), important(false), notesCount(0) {
 }
 
 void Collection::addNote(std::shared_ptr<Note> notes) {
