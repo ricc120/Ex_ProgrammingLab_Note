@@ -5,7 +5,7 @@
 #include "NoteCounter.h"
 #include <iostream>
 
-NoteCounter::NoteCounter(Collection *c) : collection(c) , notesCount(0) {
+NoteCounter::NoteCounter(Collection *c) : collection(c), notesCount(0) {
     collection->registerObserver(this);
 }
 

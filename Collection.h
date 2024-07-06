@@ -4,6 +4,7 @@
 
 #ifndef EX_PROGRAMMINGLAB_NOTE_COLLECTION_H
 #define EX_PROGRAMMINGLAB_NOTE_COLLECTION_H
+
 #include <iostream>
 #include "Note.h"
 #include <memory>
@@ -12,12 +13,12 @@
 #include "Observer.h"
 #include "Subject.h"
 
-class Collection : public Subject{
+class Collection : public Subject {
 private:
     std::string name;
     std::vector<std::shared_ptr<Note>> notes;
     int notesCount;
-    std::list<Observer*> observers;
+    std::list<Observer *> observers;
     bool important;
 
 public:

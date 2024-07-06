@@ -4,18 +4,30 @@
 #include "NoteCounter.h"
 
 int main() {
-    Collection c("General");
-    auto n1 = std::make_shared<Note>("Recipe", "...");
-    auto n2 = std::make_shared<Note>("ToDo", "...");
+    Collection collection("General");
+    Collection importantCollection;
+    auto note1 = std::make_shared<Note>("Recipe", "...");
+    auto note2 = std::make_shared<Note>("To Do", "...");
+    auto note3 = std::make_shared<Note>("Gym", "...");
 
     //Notify when the notes are added and removed
-    NoteCounter noteCounter(&c);
+    NoteCounter noteCounter(&collection);
+    NoteCounter importantNoteCounter(&importantCollection);
 
-    //Add notes in collection "General"
-    c.addNote(n1);
-    c.addNote(n2);
+    //Add notes in collection "General" and make note3 important
+    collection.addNote(note1);
+    collection.addNote(note2);
+    collection.addNote(note3);
+    importantCollection.addNote(note3);
 
-    //Remove from the collection the note "Recipe"
-    c.removeNote("Recipe");
+    //Edited the text of note1 and printed on screen
+    note1->setText("My new Apple Crumble recipe.");
+    note1->Read();
+
+    //Lock note1. Unlock it for future updates
+    note1->lock();
+
+    //Remove from the collection the note "To DO"
+    collection.removeNote("To Do");
 
 }

@@ -6,7 +6,6 @@
 #include "Note.h"
 #include <iostream>
 
-
 Collection::Collection() : name("Important Notes"), important(true), notesCount(0) {
 }
 

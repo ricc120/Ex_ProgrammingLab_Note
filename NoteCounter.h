@@ -4,6 +4,7 @@
 
 #ifndef EX_PROGRAMMINGLAB_NOTE_NOTECOUNTER_H
 #define EX_PROGRAMMINGLAB_NOTE_NOTECOUNTER_H
+
 #include <iostream>
 #include "Observer.h"
 #include "Subject.h"
@@ -12,7 +13,7 @@
 class NoteCounter : public Observer {
 private:
     int notesCount;
-    Collection* collection;
+    Collection *collection;
 
 public:
     int getNotesCount() const {

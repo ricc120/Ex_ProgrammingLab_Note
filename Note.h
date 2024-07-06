@@ -4,6 +4,7 @@
 
 #ifndef EX_PROGRAMMINGLAB_NOTE_NOTE_H
 #define EX_PROGRAMMINGLAB_NOTE_NOTE_H
+
 #include <iostream>
 
 class Note {
@@ -15,9 +16,9 @@ private:
 public:
     explicit Note(const std::string &title, const std::string &text);
 
-    void setTitle(const std::string& newTitle);
+    void setTitle(const std::string &newTitle);
 
-    void setText(const std::string& newText);
+    void setText(const std::string &newText);
 
     void lock() {
         locked = true;
@@ -38,6 +39,8 @@ public:
     bool isLock() const {
         return locked;
     }
+
+    void Read() const;
 
 };
 
