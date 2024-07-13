@@ -10,6 +10,19 @@ TEST(Collection, Constructor) {
     ASSERT_EQ(test.getName(), "Test Collection");
 }
 
+TEST(Collection, Find) {
+    Collection test("Test Collection");
+    auto n1 = std::make_shared<Note>("Test Title I°", "Test Text I°");
+    auto n2 = std::make_shared<Note>("Test Title II°", "Test Text II°");
+    auto n3 = std::make_shared<Note>("Test Title III°", "Test Text III°");
+
+    test.addNote(n1);
+    test.addNote(n2);
+
+    ASSERT_TRUE(test.findNote("Test Title I°"));
+    ASSERT_FALSE(test.findNote("Test Title III°"));
+}
+
 TEST(Collection, GetNotesCount) {
     Collection test1("Test Collection I°");
     Collection test2("Test Collection II°");

@@ -18,18 +18,23 @@ TEST(Note, Constructor) {
 
 TEST(Note, SetTextWhenLocked) {
     Note test("Test Title", "Test Text");
-    test.setTitle("New Test Title");
-    test.setText("New Test Text");
+    ASSERT_TRUE(test.setTitle("New Test Title"));
+    ASSERT_TRUE(test.setText("New Test Text"));
 
-    EXPECT_EQ(test.getTitle(), "New Test Title");
-    EXPECT_EQ(test.getText(), "New Test Text");
+    ASSERT_EQ(test.getTitle(), "New Test Title");
+    ASSERT_EQ(test.getText(), "New Test Text");
 
     test.lock();
-    test.setTitle("New New Test Title");
-    test.setText("New New Test Text");
+    ASSERT_FALSE(test.setTitle("New New Test Title"));
+    ASSERT_FALSE(test.setText("New New Test Text"));
 
-    EXPECT_EQ(test.getTitle(), "New Test Title");
-    EXPECT_EQ(test.getText(), "New Test Text");
+    ASSERT_EQ(test.getTitle(), "New Test Title");
+    ASSERT_EQ(test.getText(), "New Test Text");
+}
+
+TEST(Note, read) {
+    Note test("Test Title", "Test Text");
+    ASSERT_EQ(test.read(), "Test Title:\nTest Text");
 }
 
 

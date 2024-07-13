@@ -22,12 +22,12 @@ int main() {
 
     //Edited the text of note1 and printed on screen
     note1->setText("My new Apple Crumble recipe.");
-    note1->Read();
+    std::cout << note1->read() << std::endl;
 
     //Lock note1. Unlock it for future updates
     note1->lock();
 
-    //Remove from the collection the note "To DO"
-    collection.removeNote("To Do");
-
+    //If the note "To DO" is in the collection remove it from there
+    if (collection.findNote("To Do"))
+        collection.removeNote("To Do");
 }

@@ -30,9 +30,11 @@ public:
         return name;
     }
 
-    virtual void addNote(std::shared_ptr<Note> notes);
+    void addNote(std::shared_ptr<Note> notes);
 
-    virtual void removeNote(const std::string &title);
+    void removeNote(const std::string &title);
+
+    bool findNote(const std::string &title);
 
     size_t getNotesCount() const {
         return notes.size();

@@ -16,9 +16,9 @@ private:
 public:
     explicit Note(const std::string &title, const std::string &text);
 
-    void setTitle(const std::string &newTitle);
+    bool setTitle(const std::string &newTitle);
 
-    void setText(const std::string &newText);
+    bool setText(const std::string &newText);
 
     void lock() {
         locked = true;
@@ -40,7 +40,7 @@ public:
         return locked;
     }
 
-    void Read() const;
+    std::string read() const;
 
 };
 

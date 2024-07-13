@@ -29,4 +29,13 @@ void Collection::removeNote(const std::string &title) {
     notifyObserver();
 }
 
+bool Collection::findNote(const std::string &title) {
+    bool find = false;
+    for (auto elements: notes) {
+        if (elements->getTitle() == title)
+            find = true;
+    }
+    return find;
+}
+
 
