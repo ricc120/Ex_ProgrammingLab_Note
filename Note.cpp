@@ -26,7 +26,7 @@ bool Note::setText(const std::string &newText) {
     return true;
 }
 
-std::string Note::read() const {
+std::string Note::toString() const {
     return Note::getTitle() + ":\n" + Note::getText();
 }
 

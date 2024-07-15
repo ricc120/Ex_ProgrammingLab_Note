@@ -40,7 +40,7 @@ public:
         return locked;
     }
 
-    std::string read() const;
+    std::string toString() const;
 
 };
 

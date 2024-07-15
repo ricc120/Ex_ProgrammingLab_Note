@@ -32,9 +32,9 @@ TEST(Note, SetTextWhenLocked) {
     ASSERT_EQ(test.getText(), "New Test Text");
 }
 
-TEST(Note, read) {
+TEST(Note, ToString) {
     Note test("Test Title", "Test Text");
-    ASSERT_EQ(test.read(), "Test Title:\nTest Text");
+    ASSERT_EQ(test.toString(), "Test Title:\nTest Text");
 }
 
 

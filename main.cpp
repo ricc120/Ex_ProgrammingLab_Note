@@ -22,12 +22,13 @@ int main() {
 
     //Edited the text of note1 and printed on screen
     note1->setText("My new Apple Crumble recipe.");
-    std::cout << note1->read() << std::endl;
+    std::cout << note1->toString() << std::endl;
 
     //Lock note1. Unlock it for future updates
     note1->lock();
 
-    //If the note "To DO" is in the collection remove it from there
-    if (collection.findNote("To Do"))
-        collection.removeNote("To Do");
+    //Collect the note "To DO" in the vector findNotes and remove it from the collection
+    auto findNotes = collection.findNote("To Do");
+    std::cout << findNotes[0]->toString() << std::endl;
+    collection.removeNote("To Do");
 }

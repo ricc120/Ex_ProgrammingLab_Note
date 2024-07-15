@@ -34,7 +34,7 @@ public:
 
     void removeNote(const std::string &title);
 
-    bool findNote(const std::string &title);
+    std::vector<std::shared_ptr<Note>> findNote(const std::string &title) const;
 
     size_t getNotesCount() const {
         return notes.size();

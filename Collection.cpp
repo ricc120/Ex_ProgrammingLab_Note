@@ -29,13 +29,13 @@ void Collection::removeNote(const std::string &title) {
     notifyObserver();
 }
 
-bool Collection::findNote(const std::string &title) {
-    bool find = false;
+std::vector<std::shared_ptr<Note>> Collection::findNote(const std::string &title) const {
+    std::vector<std::shared_ptr<Note>> findNotes;
     for (auto elements: notes) {
         if (elements->getTitle() == title)
-            find = true;
+            findNotes.push_back(elements);
     }
-    return find;
+    return findNotes;
 }
 
 
